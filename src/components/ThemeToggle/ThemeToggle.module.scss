@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+
+.toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition-base;
+  font-size: 1.1rem;
+
+  &:hover {
+    background: rgba(14, 165, 233, 0.15);
+    border-color: $color-primary;
+    transform: rotate(20deg);
+  }
+}
+
+.icon {
+  line-height: 1;
+}

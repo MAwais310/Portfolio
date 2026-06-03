@@ -1,0 +1,56 @@
+@import "../../styles/variables";
+
+.wrapper {
+  margin-bottom: $space-16;
+
+  &.center {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-primary-light;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  padding: $space-1 $space-3;
+  border-radius: $radius-full;
+  margin-bottom: $space-4;
+
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $color-primary;
+    display: inline-block;
+  }
+}
+
+.title {
+  font-size: $fs-4xl;
+  font-weight: $fw-bold;
+  line-height: $lh-tight;
+  color: var(--text);
+  margin-bottom: $space-4;
+
+  @media (max-width: 768px) {
+    font-size: $fs-3xl;
+  }
+}
+
+.subtitle {
+  font-size: $fs-lg;
+  color: var(--text-muted);
+  line-height: $lh-relaxed;
+  max-width: 600px;
+}

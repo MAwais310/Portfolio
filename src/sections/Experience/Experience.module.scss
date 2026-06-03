@@ -1,0 +1,190 @@
+@import "../../styles/variables";
+
+.experience {
+  background: var(--bg);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: $space-8;
+  align-items: start;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ─── Tabs ─────────────────────────────────────────────────────────────────────
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  position: sticky;
+  top: calc($navbar-height + $space-8);
+
+  @media (max-width: 768px) {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: $space-2;
+    gap: $space-2;
+  }
+}
+
+.tab {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  padding: $space-4 $space-5;
+  border-radius: $radius-md;
+  background: transparent;
+  border: 1px solid transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: $transition-base;
+  position: relative;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--card);
+    border-color: var(--border);
+  }
+
+  &.tabActive {
+    background: var(--card);
+    border-color: $color-primary;
+    box-shadow: $shadow-glow;
+
+    .tabDot {
+      background: $color-primary;
+      box-shadow: 0 0 8px $color-primary;
+    }
+
+    .tabCompany {
+      color: var(--text);
+    }
+  }
+}
+
+.tabDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-text-subtle;
+  flex-shrink: 0;
+  margin-top: 5px;
+  transition: $transition-base;
+}
+
+.tabText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.tabCompany {
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  color: var(--text-muted);
+}
+
+.tabPeriod {
+  font-size: $fs-xs;
+  color: var(--text-subtle);
+}
+
+.currentBadge {
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  color: $color-accent;
+  background: rgba(132, 204, 22, 0.1);
+  border: 1px solid rgba(132, 204, 22, 0.25);
+  padding: 2px 8px;
+  border-radius: $radius-full;
+  flex-shrink: 0;
+}
+
+// ─── Panel ───────────────────────────────────────────────────────────────────
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: $radius-xl;
+  padding: $space-8;
+  box-shadow: $shadow-md;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: $space-4;
+  margin-bottom: $space-8;
+  padding-bottom: $space-6;
+  border-bottom: 1px solid var(--border);
+}
+
+.role {
+  font-size: $fs-2xl;
+  font-weight: $fw-bold;
+  color: var(--text);
+  margin-bottom: $space-1;
+}
+
+.company {
+  font-size: $fs-base;
+  color: $color-primary-light;
+  font-weight: $fw-medium;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $space-2;
+
+  @media (max-width: 600px) {
+    align-items: flex-start;
+  }
+}
+
+.period {
+  font-size: $fs-sm;
+  color: var(--text-muted);
+  font-weight: $fw-medium;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  padding: $space-1 $space-3;
+  border-radius: $radius-full;
+}
+
+.location {
+  font-size: $fs-sm;
+  color: var(--text-subtle);
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.point {
+  display: flex;
+  gap: $space-4;
+  font-size: $fs-base;
+  color: var(--text-muted);
+  line-height: $lh-relaxed;
+  align-items: flex-start;
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $color-primary;
+  flex-shrink: 0;
+  margin-top: 9px;
+}

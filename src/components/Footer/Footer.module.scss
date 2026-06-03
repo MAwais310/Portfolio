@@ -1,0 +1,75 @@
+@import "../../styles/variables";
+
+.footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: $space-10 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $space-6;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.logo {
+  font-size: $fs-2xl;
+  font-weight: $fw-extrabold;
+  background: $color-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dot {
+  color: $color-accent;
+  -webkit-text-fill-color: $color-accent;
+}
+
+.tagline {
+  font-size: $fs-sm;
+  color: var(--text-subtle);
+}
+
+.socials {
+  display: flex;
+  gap: $space-3;
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $fs-lg;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary-light;
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow;
+  }
+}
+
+.copy {
+  font-size: $fs-sm;
+  color: var(--text-subtle);
+  width: 100%;
+  text-align: center;
+  padding-top: $space-6;
+  border-top: 1px solid var(--border);
+}

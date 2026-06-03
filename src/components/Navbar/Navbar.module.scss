@@ -1,0 +1,210 @@
+@import "../../styles/variables";
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: $navbar-height;
+  transition: $transition-base;
+  background: transparent;
+
+  &.scrolled {
+    background: rgba(10, 10, 15, 0.85);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: $shadow-md;
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+// ─── Logo ────────────────────────────────────────────────────────────────────
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  text-decoration: none;
+}
+
+.logoText {
+  font-size: $fs-xl;
+  font-weight: $fw-bold;
+  background: $color-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.logoDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $color-accent;
+  margin-bottom: 12px;
+}
+
+// ─── Desktop Nav ─────────────────────────────────────────────────────────────
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.navLink {
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: var(--text-muted);
+  padding: $space-2 $space-3;
+  border-radius: $radius-sm;
+  transition: $transition-fast;
+  text-decoration: none;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: $color-gradient;
+    border-radius: $radius-full;
+    transition: width 0.25s ease;
+  }
+
+  &:hover,
+  &.active {
+    color: var(--text);
+
+    &::after {
+      width: 70%;
+    }
+  }
+}
+
+// ─── Actions ─────────────────────────────────────────────────────────────────
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.cvBtn {
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  padding: $space-2 $space-5;
+  border-radius: $radius-full;
+  background: $color-gradient;
+  color: white;
+  text-decoration: none;
+  transition: $transition-base;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+    box-shadow: $shadow-glow;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// ─── Burger ──────────────────────────────────────────────────────────────────
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+  padding: 4px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+  span {
+    display: block;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: $transition-base;
+    transform-origin: center;
+
+    &:nth-child(1) {
+      width: 100%;
+    }
+    &:nth-child(2) {
+      width: 75%;
+    }
+    &:nth-child(3) {
+      width: 100%;
+    }
+  }
+
+  &.burgerOpen {
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+      width: 100%;
+    }
+  }
+}
+
+// ─── Mobile Menu ─────────────────────────────────────────────────────────────
+.mobileMenu {
+  position: fixed;
+  top: $navbar-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 15, 0.97);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-6;
+  z-index: 999;
+}
+
+.mobileLink {
+  font-size: $fs-2xl;
+  font-weight: $fw-semibold;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $color-primary-light;
+  }
+}
+
+.mobileCvBtn {
+  display: flex !important;
+  margin-top: $space-4;
+}

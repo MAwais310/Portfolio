@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import "variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $fs-base;
+  line-height: $lh-normal;
+  color: $color-text;
+  background-color: $color-bg-dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &[data-theme="light"] {
+    background-color: $color-bg-light;
+    color: $color-text-light;
+
+    --bg: #{$color-bg-light};
+    --bg2: #{$color-bg-light-2};
+    --card: #{$color-bg-card-light};
+    --surface: #{$color-surface-light};
+    --border: #{$color-border-light};
+    --text: #{$color-text-light};
+    --text-muted: #{$color-text-muted-light};
+    --text-subtle: #94a3b8;
+  }
+
+  &[data-theme="dark"] {
+    --bg: #{$color-bg-dark};
+    --bg2: #{$color-bg-dark-2};
+    --card: #{$color-bg-card};
+    --surface: #{$color-surface};
+    --border: #{$color-border};
+    --text: #{$color-text};
+    --text-muted: #{$color-text-muted};
+    --text-subtle: #{$color-text-subtle};
+  }
+}
+
+::selection {
+  background: rgba(14, 165, 233, 0.35);
+  color: $color-text;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-6;
+
+  @media (max-width: 768px) {
+    padding: 0 $space-4;
+  }
+}
+
+.section {
+  padding: $space-24 0;
+
+  @media (max-width: 768px) {
+    padding: $space-16 0;
+  }
+}
+
+// ─── Gradient Text Utility ───────────────────────────────────────────────────
+.gradient-text {
+  background: $color-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// ─── Custom Scrollbar ────────────────────────────────────────────────────────
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: $color-bg-dark-2;
+}
+::-webkit-scrollbar-thumb {
+  background: $color-primary;
+  border-radius: $radius-full;
+}

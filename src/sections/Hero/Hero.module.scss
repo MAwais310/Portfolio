@@ -1,0 +1,444 @@
+@import "../../styles/variables";
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: $navbar-height;
+}
+
+// ─── Background ──────────────────────────────────────────────────────────────
+.orb1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(14, 165, 233, 0.18) 0%,
+    transparent 70%
+  );
+  top: -100px;
+  left: -200px;
+  pointer-events: none;
+  animation: float1 8s ease-in-out infinite;
+}
+
+.orb2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(132, 204, 22, 0.15) 0%,
+    transparent 70%
+  );
+  bottom: -100px;
+  right: -100px;
+  pointer-events: none;
+  animation: float2 10s ease-in-out infinite;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(14, 165, 233, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+// ─── Layout ──────────────────────────────────────────────────────────────────
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-16;
+  align-items: center;
+  width: 100%;
+  padding-top: $space-12;
+  padding-bottom: $space-12;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: $space-10;
+  }
+}
+
+// ─── Content ─────────────────────────────────────────────────────────────────
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+
+  @media (max-width: 900px) {
+    align-items: center;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: $color-accent;
+  background: rgba(132, 204, 22, 0.1);
+  border: 1px solid rgba(132, 204, 22, 0.25);
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  width: fit-content;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-accent;
+  box-shadow: 0 0 8px $color-accent;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.name {
+  font-size: $fs-hero;
+  font-weight: $fw-extrabold;
+  line-height: $lh-tight;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.highlight {
+  background: $color-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
+
+  &::before {
+    content: "";
+    width: 3px;
+    height: 28px;
+    background: $color-gradient;
+    border-radius: $radius-full;
+    flex-shrink: 0;
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
+}
+
+.title {
+  font-size: $fs-2xl;
+  font-weight: $fw-semibold;
+  color: $color-text-muted;
+}
+
+.tagline {
+  font-size: $fs-lg;
+  color: $color-text-muted;
+  font-weight: $fw-medium;
+}
+
+.summary {
+  font-size: $fs-base;
+  color: var(--text-muted);
+  line-height: $lh-relaxed;
+  max-width: 520px;
+
+  @media (max-width: 900px) {
+    max-width: 100%;
+  }
+}
+
+// ─── CTA ─────────────────────────────────────────────────────────────────────
+.cta {
+  display: flex;
+  gap: $space-4;
+  flex-wrap: wrap;
+
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-8;
+  background: $color-gradient;
+  color: white;
+  font-size: $fs-base;
+  font-weight: $fw-semibold;
+  border-radius: $radius-full;
+  text-decoration: none;
+  transition: $transition-bounce;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-glow;
+  }
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-3 $space-8;
+  background: transparent;
+  color: var(--text);
+  font-size: $fs-base;
+  font-weight: $fw-semibold;
+  border: 1px solid var(--border);
+  border-radius: $radius-full;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary-light;
+    background: rgba(14, 165, 233, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.btnIcon {
+  transition: transform 0.3s ease;
+
+  .primaryBtn:hover & {
+    transform: translateY(3px);
+  }
+}
+
+// ─── Socials ─────────────────────────────────────────────────────────────────
+.socials {
+  display: flex;
+  gap: $space-3;
+
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
+}
+
+.socialLink {
+  width: 42px;
+  height: 42px;
+  border-radius: $radius-full;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $fs-lg;
+  color: var(--text-muted);
+  transition: $transition-base;
+  text-decoration: none;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary-light;
+    background: rgba(14, 165, 233, 0.1);
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow;
+  }
+}
+
+// ─── Avatar ──────────────────────────────────────────────────────────────────
+.avatarWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 380px;
+  height: 380px;
+  margin: 0 auto;
+
+  @media (max-width: 600px) {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+.avatarRing {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px dashed rgba(14, 165, 233, 0.3);
+  animation: spin 30s linear infinite;
+}
+
+.avatarGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(14, 165, 233, 0.25) 0%,
+    transparent 70%
+  );
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.avatar {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: $color-surface;
+  border: 3px solid rgba(14, 165, 233, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: $shadow-glow, $shadow-lg;
+
+  @media (max-width: 600px) {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+.avatarInitials {
+  font-size: 4rem;
+  font-weight: $fw-bold;
+  background: $color-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  @media (max-width: 600px) {
+    font-size: 3rem;
+  }
+}
+
+.floatBadge1,
+.floatBadge2 {
+  position: absolute;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: $shadow-md;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  z-index: 2;
+
+  span {
+    font-size: $fs-xl;
+    font-weight: $fw-bold;
+    background: $color-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  small {
+    font-size: $fs-xs;
+    color: var(--text-muted);
+    font-weight: $fw-medium;
+  }
+}
+
+.floatBadge1 {
+  top: 20px;
+  right: -10px;
+  animation: float1 4s ease-in-out infinite;
+}
+
+.floatBadge2 {
+  bottom: 30px;
+  left: -10px;
+  animation: float2 5s ease-in-out infinite;
+}
+
+// ─── Scroll Hint ─────────────────────────────────────────────────────────────
+.scrollHint {
+  position: absolute;
+  bottom: $space-8;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  color: var(--text-subtle);
+  font-size: $fs-xs;
+  text-decoration: none;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $color-primary-light;
+  }
+}
+
+.scrollIcon {
+  animation: bounce 2s ease-in-out infinite;
+  font-size: $fs-lg;
+}
+
+// ─── Animations ──────────────────────────────────────────────────────────────
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
