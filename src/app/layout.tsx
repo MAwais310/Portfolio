@@ -5,7 +5,7 @@ import Footer from "@/components/Footer/Footer";
 import ScrollProgress from "@/components/ScrollProgress/ScrollProgress";
 
 export const metadata: Metadata = {
-  title: "Abdul Muneeb – Senior Frontend Developer",
+  title: "Muhammad Awais Tariq – Senior Frontend Developer",
   description:
     "Senior Frontend Developer with 5+ years building scalable React.js and Next.js applications. Specialized in high-performance, responsive web apps with TypeScript, GraphQL, and modern UI patterns.",
   keywords: [
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "React Developer",
     "Next.js Developer",
     "TypeScript",
-    "Abdul Muneeb",
+    "Muhammad Awais Tariq",
     "Islamabad",
     "Senior Frontend Developer",
     "JavaScript",
@@ -21,10 +21,13 @@ export const metadata: Metadata = {
     "GraphQL",
   ],
   authors: [
-    { name: "Abdul Muneeb", url: "https://www.linkedin.com/in/muneeb-afridi" },
+    {
+      name: "Muhammad Awais Tariq",
+      url: "https://www.linkedin.com/in/mawaistariq",
+    },
   ],
   openGraph: {
-    title: "Abdul Muneeb – Senior Frontend Developer",
+    title: "Muhammad Awais Tariq – Senior Frontend Developer",
     description:
       "Building scalable, high-performance web experiences with React.js & Next.js.",
     type: "website",
