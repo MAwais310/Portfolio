@@ -94,7 +94,7 @@ export default function Hero() {
           <div className={styles.avatarGlow} />
           <div className={styles.avatar}>
             <Image
-              src="/profilee.png"
+              src="/profile.png"
               alt={personalData.name}
               fill
               sizes="(max-width: 600px) 180px, 240px"
